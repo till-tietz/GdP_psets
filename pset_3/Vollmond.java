@@ -1,11 +1,4 @@
-/**
- * 
- */
 
-/**
- * @author Len 450
- *
- */
 public class Vollmond {
 
 	public static void main(String[] args) {
