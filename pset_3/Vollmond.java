@@ -4,7 +4,7 @@ public class Vollmond {
 	public static void main(String[] args) {
 		int n = Integer.parseInt(args[0]);
 
-		// array months
+		// array of month names
 		String[] months = { 
 			"Januar", "Februar", "Maerz", "April", 
 			"Mai", "Juni", "Juli", "August", 
@@ -33,10 +33,9 @@ public class Vollmond {
 		int months_found = 0;
 
 		// string output
-		String moons_date = "";
+		String months_two_moons = "";
 
-		while (months_found != n) {
-
+		do {
 			// day of next full moon 
 			int day_new = day + 29;
 		
@@ -51,12 +50,11 @@ public class Vollmond {
 			if (day_new > year_end) {
 				// updat year 
 				year = year + 1;
-				// check if leap year
-				if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-					leap = true;
-				} else {
-					leap = false;
-				}
+
+				// update leap year
+				leap = (year % 4 == 0) && (year % 100 != 0);
+				leap = leap || (year % 400 == 0); 
+
 				// set correct day 
 				day_new = day_new - year_end;
 			}
@@ -78,17 +76,18 @@ public class Vollmond {
 					month_new = month_new + 1;
 				}
 			}
-			// check if current full mon and previous full moon 
+			// check if current full moon and previous full moon 
 			// happened in the same month 
 			if (month == month_new) {
 				months_found = months_found + 1;
-				moons_date = moons_date + year + ", " + months[month_new] + "\n";
+				months_two_moons = months_two_moons + year + ", " + months[month_new] + "\n";
 			}
 			day = day_new;
 			month = month_new;
-		}
 
-		System.out.println(moons_date);
+		} while(months_found != n);
+
+		System.out.println(months_two_moons);
 	}
 
 }
