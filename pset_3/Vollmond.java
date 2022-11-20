@@ -41,6 +41,7 @@ public class Vollmond {
 		int months_found = 1;
 
 		// string output
+		// it seemed logical to just print an empty string when n = 0
 		String months_two_moons;
 		if(n == 0){
 			months_two_moons = "";
