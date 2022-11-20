@@ -4,6 +4,11 @@ public class Vollmond {
 	public static void main(String[] args) {
 		int n = Integer.parseInt(args[0]);
 
+		if(n < 0){
+            System.out.println("argument has to a be non-negative integer");
+			System.exit(-1);
+        }
+
 		// array of month names
 		String[] months = { 
 			"Januar", "Februar", "Maerz", "April", 
@@ -19,23 +24,31 @@ public class Vollmond {
 			31, 60, 91, 121, 152, 182, 
 			213, 244, 274, 305, 335, 366 
 		};
-
-		// initial year,month and day  
+		
+		// it's immediately obvious that Januar 2022 has two full moons
+		// so we can elminiate computation for that trivial case. 
+		// We therefore start at day 30 in month 0 and initialize 
+		// months_found and months_two_moons accordingly    
 		int year = 2022;
 		int month = 0;
-		int day = 1;
+		int day = 30;
 
 		// boolean indicating leap year
 		// set to false initially as 2022 is not a leap year
 		boolean leap = false;
 
 		// number of months with two full moons found   
-		int months_found = 0;
+		int months_found = 1;
 
 		// string output
-		String months_two_moons = "";
+		String months_two_moons;
+		if(n == 0){
+			months_two_moons = "";
+		} else {
+			months_two_moons = "2022, Januar \n";
+		}
 
-		do {
+		while(months_found < n){
 			// day of next full moon 
 			int day_new = day + 29;
 		
@@ -84,8 +97,7 @@ public class Vollmond {
 			}
 			day = day_new;
 			month = month_new;
-
-		} while(months_found != n);
+		}
 
 		System.out.println(months_two_moons);
 	}
