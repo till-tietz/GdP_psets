@@ -32,13 +32,10 @@ public class FlugSimulator {
             sum_passengers += n_passengers[i];
         }
         double mean_passengers = (float) sum_passengers / n;
-
-        System.out.println(
-            "Überbuchungen: " + n_overbooked + " (" + overbooked_percent + "%)" + "\n" +
-            "\n" + 
-            "Mittelwert: " + mean_passengers
-        );
-
+        
+        System.out.printf("%s %d %s%.2f%s%s %.2f", 
+                          "Überbuchungen:",n_overbooked, "(", overbooked_percent, "%)\n",
+                          "Mittelwert:", mean_passengers);
     }
 
 }
