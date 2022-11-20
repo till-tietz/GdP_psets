@@ -2,6 +2,11 @@ public class FlugSimulator {
 
     public static void main(String[] args){
         int n = Integer.parseInt(args[0]);
+        
+        if(n < 1){
+            System.out.println("n has to be >= 1");
+			System.exit(-1);
+        }
 
         int[] n_passengers = new int[n];
         int n_overbooked = 0;
@@ -33,7 +38,7 @@ public class FlugSimulator {
         }
         double mean_passengers = (float) sum_passengers / n;
         
-        System.out.printf("%s %d %s%.2f%s%s %.2f", 
+        System.out.printf("%s %d %s%.2f%s%s %.1f", 
                           "Überbuchungen:",n_overbooked, "(", overbooked_percent, "%)\n",
                           "Mittelwert:", mean_passengers);
     }
