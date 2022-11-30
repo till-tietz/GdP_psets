@@ -1,18 +1,10 @@
-/**
- * 
- */
-
-/**
- * @author Till Tietz
- *
- */
 public class GGT {
 
 	public static void main(String[] args) {
 		int a = Integer.parseInt(args[0]);
 		int b = Integer.parseInt(args[1]);
 		
-		if(a < 0 || b < 0) {
+		if(a <= 0 || b <= 0) {
 			System.out.println("nur positive ganze Zahlen als Argumente erlaubt");
 			System.exit(-1);
 		}
