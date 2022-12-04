@@ -1,4 +1,4 @@
-public class FlugSimulator {
+ public class FlugSimulator {
 
     public static void main(String[] args){
         int n = Integer.parseInt(args[0]);
