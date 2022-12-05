@@ -37,7 +37,8 @@ public class GameOfLife{
         int n_alive = 0;
 
         for(int i = -1; i <= 1; i++){
-            //adjust values when cell is on edge 
+            //adjust values when cells on edge 
+            //when cell on top/bottom edge of grid neighbours continue at bottom/top 
             int yn = y + i;
             if(yn >= y_axis){
                 yn = 0;
@@ -46,7 +47,8 @@ public class GameOfLife{
             } 
 
             for(int j = -1; j <= 1; j++){
-                //adjust values when cell is on edge
+                //adjust values when cells on edge
+                //when well on left/right edge of grid neighbours continue at right/left
                 int xn = x + j;
                 if(xn >= x_axis){
                     xn = 0;
@@ -56,7 +58,8 @@ public class GameOfLife{
                 n_alive += grid[yn][xn];
             }
         }
-        //subtract self count
+        //when cell is alive (1) the cell will be counted as its own neighbour 
+        //subtract 
         if(grid[y][x] == 1){
             n_alive -= 1;
         }
