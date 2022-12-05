@@ -56,8 +56,11 @@ public class GameOfLife{
                 n_alive += grid[yn][xn];
             }
         }
-        //subtract self count 
-        return n_alive - 1;
+        //subtract self count
+        if(grid[y][x] == 1){
+            n_alive -= 1;
+        }
+        return n_alive;
     }
 
     //method: next generation
@@ -69,11 +72,11 @@ public class GameOfLife{
                 //number of living neighbours
                 int n_alive_neighbours = living_neighbours(grid, x_axis, y_axis, j, i);
                 //re-production rules 
-                if(grid[i][j] == 0 && n_alive_neighbours == 3){
+                if((grid[i][j] == 0) && (n_alive_neighbours == 3)){
                     grid_next[i][j] = 1;
-                } else if(grid[i][j] == 1 && n_alive_neighbours == 2) {
+                } else if((grid[i][j]) == 1 && (n_alive_neighbours == 2)) {
                     grid_next[i][j] = 1;
-                } else if(grid[i][j] == 1 && n_alive_neighbours == 3) {
+                } else if((grid[i][j] == 1) && (n_alive_neighbours == 3)) {
                     grid_next[i][j] = 1;
                 } else {
                     grid_next[i][j] = 0;
@@ -109,8 +112,7 @@ public class GameOfLife{
             draw_grid(grid, x_axis, y_axis);
             StdDraw.show(200);
             grid = next_gen(grid,x_axis,y_axis);  
-        }
-        
+        }     
     } 
 
 }
