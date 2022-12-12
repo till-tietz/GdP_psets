@@ -91,8 +91,8 @@ public class Bigs {
     // ganzzahliger Quotient bei Division durch 10
     static int[] div10(int[] n) {
         int[] ret = new int[n.length - 1];
-        for(int i = 1; i < ret.length; i++){
-            ret[i] = n[i];
+        for(int i = 0; i < ret.length; i++){
+            ret[i] = n[i+1];
         }
         return ret;
     }
