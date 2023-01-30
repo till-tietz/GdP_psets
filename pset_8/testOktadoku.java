@@ -5,7 +5,7 @@ class testOktadoku {
 		    v = Oktadoku.Variante.mitDiagonalen;
 		Oktadoku s = new Oktadoku(v);
 	
-		s.read();
+		s.read(args[1]);
 		s.write();
 		if (s.check())
 			s.solve();

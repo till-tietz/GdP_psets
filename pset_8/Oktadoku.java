@@ -91,23 +91,39 @@ public class Oktadoku {
         return true;
     }
 
-    public boolean solve() {
+    private boolean solve_helper() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (board[i][j] == 0) {
                     for (int k = 1; k <= 8; k++) {
                         board[i][j] = k;
-                        if (check() && solve()) {
+                        if (check() && solve_helper()) {
                             return true;
                         }
                         board[i][j] = 0;
                     }
-                    System.out.println("nicht loesbar :-(");
                     return false;
                 }
             }
         }
         return true;
+    }
+
+    public void solve() {
+        boolean solvable = solve_helper();
+        if(type == Variante.mitDiagonalen){
+            System.out.println("Oktadoku mit Diagonalen");
+        }
+        
+        if(type == Variante.normal){
+            System.out.println("Oktadoku");
+        }
+
+        if(solvable){
+            write();
+        } else {
+            System.out.println("nicht loesbar :-(");
+        }
     }
 
     public void write() {
