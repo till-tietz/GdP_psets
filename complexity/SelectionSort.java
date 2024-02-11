@@ -1,5 +1,5 @@
 public class SelectionSort {
-    // sortiere das Array a mit SelectionSort
+    // Array mit SelectionSort sortieren
     public static void sort(String[] a, char c) {
         for (int i = 0; i < a.length - 1; i++) {
             int minIndex = i;
@@ -8,7 +8,7 @@ public class SelectionSort {
                     minIndex = j;
                 }
             }
-            // Swap
+            // vertauschen 
             String temp = a[minIndex];
             a[minIndex] = a[i];
             a[i] = temp;
@@ -38,7 +38,7 @@ public class SelectionSort {
         }
     }
 
-    // Compare two strings based on the frequency of the given letter
+    // zwei strings nach haeufigkeit eines buchstabens vergleichen
     private static int compare(String s1, String s2, char searchLetter) {
         int freqS1 = getFrequency(s1, searchLetter);
         int freqS2 = getFrequency(s2, searchLetter);
@@ -46,10 +46,12 @@ public class SelectionSort {
         return Integer.compare(freqS2, freqS1);
     }
 
-    // Get the frequency of a given letter in a string
+    // haeufigkeit eines buchstabens in string ermitteln
     private static int getFrequency(String s, char searchLetter) {
+        char[] sArray = s.toCharArray();
         int frequency = 0;
-        for (char c : s.toCharArray()) {
+        for (int i = 0; i < sArray.length; i++) {
+            char c = sArray[i];
             if (c == searchLetter) {
                 frequency++;
             }
